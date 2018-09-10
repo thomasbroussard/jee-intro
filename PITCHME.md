@@ -25,9 +25,9 @@ JEE helps to normalize the answers given to certain problems.
 - The solution is standard (bis), so every other developer can know what was attempted
 
 --- 
-
+@snap[north-west]
 ## JEE : Range of applications
-@snap[north]
+
 JEE applies to a wide range of software needs:
 - Configuration management thanks to DI
 - Persistence thanks to JPA
