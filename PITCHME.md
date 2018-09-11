@@ -138,6 +138,8 @@ Complete the maven project definition with that list of dependencies in their la
 
 You can access to this site [mvnrepository](https://mvnrepository.com/ "mvn central")
 
+---
+
 ### Third exercise : centralize definition in a parent project
 
 - Create a new maven project with packaging **pom**, this project can be named `epita-parent`
