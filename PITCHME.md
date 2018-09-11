@@ -31,7 +31,15 @@ JEE helps to normalize the answers given to certain problems.
 
 JEE applies to a wide range of software needs:
 - Configuration management thanks to DI
-- Persistence thanks to JPA
-- Interoperability thanks to JAX-RS / JAX-WS
-- MOM specification with JMS
-- Software presentation thanks to JSP / JSF
+- Persistence thanks to **JPA**
+- Interoperability thanks to **JAX-RS** / **JAX-WS**
+- MOM messaging with **JMS**
+- Software presentation thanks to **JSP** / **JSF**
+
+And many other specs
+
+---
+
+## How to practice ?
+
+In order to practice JEE, 
