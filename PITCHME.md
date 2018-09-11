@@ -82,13 +82,42 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 @[5](groupId: group of projects the artifact belongs to)
 @[6](artifactId: name of the project)
 @[7](type of binary)
-@[8](version)
+@[8](version of the project, note the **SNAPSHOT** flag)
+
+---
+
+### Adding dependencies
+
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.epita.quiz</groupId>
+	<artifactId>quiz-core</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
+
+```
+@[9-16](XML fragment to add in order to include dependencies)
+@[10,15](A dependency tag to define each dependency)
+@[11-13](Notice the triplet groupId,artifactId,version)
+@[14](The scope - context - where the dependency will be used)
 
 ---
 
 ### First exercise create a maven project
 
-In this exercise, you have to define a list of dependencies
+In this exercise, you have to define a list of dependencies:
 
 
 
