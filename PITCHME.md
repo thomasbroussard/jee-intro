@@ -128,7 +128,7 @@ Once the project is created, implement a factorial program
 
 ### Second exercise : add dependencies to your project
 
-In this exercise, you'll have to complete the maven project definition with that list of dependencies in their latest version:
+Complete the maven project definition with that list of dependencies in their latest versions:
 - JUnit (already present)
 - log4j2
 - hibernate-core
