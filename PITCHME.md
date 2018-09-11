@@ -117,7 +117,33 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 ### First exercise create a maven project
 
-In this exercise, you have to define a list of dependencies:
+In this exercise, you have to create a maven project thanks to Eclipse
+- what do you notice about project organization?
+
+Once the project is created, implement a factorial program
+- How to test it?
+- How to deliver it?
+
+---
+
+### Second exercise : add dependencies to your project
+
+In this exercise, you'll have to complete the maven project definition with that list of dependencies in their latest version:
+- JUnit (already present)
+- log4j2
+- hibernate-core
+- spring-context
+- spring-orm
+- javax-inject
+
+You can access to this site [mvnrepository](https://mvnrepository.com/ "mvn central")
+
+### Third exercise : centralize definition in a parent project
+
+- Create a new maven project with packaging **pom**, this project can be named `epita-parent`
+- then report the content of the `dependencies` in a section `dependencyManagement`
+- finally, define the epita-parent project  
+
 
 
 
