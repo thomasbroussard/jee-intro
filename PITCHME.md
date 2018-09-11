@@ -25,7 +25,8 @@ JEE helps to normalize the answers given to certain problems.
 - The solution is standard (bis), so every other developer can know what was attempted
 
 --- 
-@snap[north-west]
+
+
 ## JEE : Range of applications
 
 JEE applies to a wide range of software needs:
@@ -34,4 +35,3 @@ JEE applies to a wide range of software needs:
 - Interoperability thanks to JAX-RS / JAX-WS
 - MOM specification with JMS
 - Software presentation thanks to JSP / JSF
-@snapend
