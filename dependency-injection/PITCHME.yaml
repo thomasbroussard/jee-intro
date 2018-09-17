@@ -1,2 +1,2 @@
 layout : top-left
-theme-override : ../custom.css
+theme-override : https://raw.githubusercontent.com/thomasbroussard/jee-intro/master/custom.css
