@@ -51,18 +51,48 @@ Spring is among the most used, this is why the examples will be shown with Sprin
 
 Spring relies on two ways to define the dependencies to be injected:
 - A File-based application context : an xml file that defines all the instances and their internal values
-- A 
+- A Bean Based application context : an Java class containing all the configuration for the project
 
 ---
 ### How to define what we inject (2) : Beans
+In the DI context, the instances that we'll create are called "beans"
+if we take a Spring example, with an XML file:
+
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+    	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<bean id="firstQuery" class="java.lang.String">
+		<constructor-arg><value>select * from Questions</value></constructor-arg>
+	</bean>
+
+
+</beans>
+```
+@[1,15](the tag that will contain all the beans definitions)
+@[2-8](namespaces definitions)
+@[10-12](the "Bean" definition, here a string to initialize an SQL query)
+@[11] Notice the "constructor-arg" tag which allows to describe how the instance is constructed.
 
 ---
-
 ### How to Inject a dependency : Inject vs Autowired
+
+If you want now to inject the bean in your program, then you have to use an injection flag:
+- @Autowired annotation comes from Spring
+- @Inject annotation comes from the standard specification
 
 ---
 ### How to Inject a dependency 2 : Named vs Qualifier
 
+If you want now to prepare more than one bean of the same type, you are forced to precise the id of this bean.
+- using @Qualifier (from Spring)
+- using @Named (from standard)
 
 ---
 ### How to compose beans using Spring
