@@ -55,8 +55,6 @@ Spring relies on two ways to define the dependencies to be injected:
 
 ---
 ### How to define what we inject (2) : Beans
-In the DI context, the instances that we'll create are called "beans"
-if we take a Spring example, with an XML file:
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
