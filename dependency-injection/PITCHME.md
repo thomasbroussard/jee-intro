@@ -132,24 +132,54 @@ This feature is used to configure complex frameworks such as **hibernate**
 
 ---
 ### Spring Sterotypes
-Spring has put in its sub framework **spring-context** some annotations to identify `components`, `repositories` and `services`.
+
+Spring has put in its sub framework **spring-context** some annotations to identify `@Component`s, `@Repository`s and `@Service`s.
+
 Thanks to those annotations, spring is able to identify special classes and treat them as auto injectable instances.
 
 
 ---
 ### Automatic scan and injection
 
+To perform automatic scan and injection of stereotyped dependencies, we can activate the **component-scan** feature, as follows
 
+```xml
+<context:component-scan base-package="fr.epita.quiz.services" />
 
+```
+you have though to declare the **spring-context** dependency in your maven file. 
 
 ---
 ### Using Spring with JUnit
+To use Spring and Junit, it is necessary to tell Junit to launch spring and to process Dependency Injection.
+
+```java
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "/applicationContext.xml")
+public class TestDI {
+	private static final Logger LOGGER = LogManager.getLogger(TestDI.class);
+	
+	@Inject
+	String selectQuery;
+	
+	//... test methods
+}
+
+```
 
 ---
+
 ### Exercise : Inject a simple DataSource using Spring
- 
+With H2 database, it can look like (in the application context file):
+
+```
+ 	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 		<property name="url" value="jdbc:h2:mem:test"></property>
+ 		<property name="username" value="test"></property>
+ 		<property name="password" value="test"></property>
+ 		<property name="driverClassName" value="org.h2.Driver"></property>
+ 	
+ 	</bean>
+```
 
 
-
-
- 
