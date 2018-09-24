@@ -94,14 +94,53 @@ If you want now to prepare more than one bean of the same type, you are forced t
 
 ---
 ### How to compose beans using Spring
+It is possible to assemble several **beans** within a bigger one to achieve complex configuration
+This feature is used to configure complex frameworks such as **hibernate**
 
+```xml
+  <context:component-scan base-package="fr.epita.quiz.services" />
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
+		<property name="url" value="jdbc:derby:memory:testDS;create=true" />
+		<property name="username" value="root" />
+		<property name="password" value="password" />
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean" id="hibernateProperties">
+		<property name="properties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="packagesToScan">
+			<list>
+				<value>fr.epita.quiz.datamodel</value>
+			</list>
+		</property>
+	</bean>
+	
+````
 
 ---
 ### Spring Sterotypes
+Spring has put in its sub framework **spring-context** some annotations to identify `components`, `repositories` and `services`.
+Thanks to those annotations, spring is able to identify special classes and treat them as auto injectable instances.
 
 
 ---
 ### Automatic scan and injection
+
+
+
 
 ---
 ### Using Spring with JUnit
