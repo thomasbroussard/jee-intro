@@ -67,8 +67,6 @@ Hibernate needs a configuration to specify several aspects :
 
 --- 
 ### Hibernate configuration with Spring
-With Spring, you can inject the different components of the Hibernate configuration
-
 ```
 <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
  		<property name="url" value="jdbc:h2:mem:test"></property>
