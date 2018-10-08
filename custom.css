@@ -12,3 +12,8 @@ code {
     font-family: Consolas;
     font-size: 0.95em;
 }
+
+pre code {
+	border-radius : initial;
+	
+}
