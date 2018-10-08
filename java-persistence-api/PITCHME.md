@@ -184,11 +184,40 @@ Specifications :
 ### Problem : adherence to the hibernate framework
 
 ---
-### Solution to adherence : using an entity manager
+### Solution to adherence : declaring an entity manager
+
+```
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="fr.epita.quiz.datamodel" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+			</props>
+		</property>
+	</bean>   
+	
+	<bean id="transactionManager"
+     class="org.springframework.orm.jpa.JpaTransactionManager">
+       <property name="entityManagerFactory" ref="entityManagerFactory" />
+   </bean>
+   <tx:annotation-driven />	
+	
+```
+@[1](The entity manager is the JPA equivalent to session factory)
+@[2-12](it contains roughly the same properties)
 
 ---
+### Solution to adherence : injecting the entity manager
 
-
+```
+	@PersistenceContext
+	EntityManager em;
+```
 
 
 
