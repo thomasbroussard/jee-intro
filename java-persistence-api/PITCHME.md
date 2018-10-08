@@ -103,7 +103,94 @@ Hibernate needs a configuration to specify several aspects :
 
 ---
 ### Usage in the code
- 
+use @Inject to reference the session factory, as follows :
+
+```
+public abstract class GenericDAO<T> {
+
+	private static final Logger LOGGER = LogManager.getLogger(GenericDAO.class);
+	
+	@Inject
+	private SessionFactory sf;
+	
+	//rest of the code
+	
+}
+```
+@[5-6](the way to inject the session factory in a service class)
+
+---
+
+### session : opening sessions
+
+- In order to manage data through Hibernate, it is necessary to open a `Session`. 
+- This is one common code to handle the session: 
+
+```
+	protected final Session getSession() {
+		Session session = null;
+		try {
+			session = this.sf.getCurrentSession();
+		} catch (Exception e) {
+			LOGGER.error(e);
+		}
+		if (session == null) {
+			session = sf.openSession();
+		}
+		return session;
+	}
+
+```
+---
+
+### saving data : commits and transactions
+- When you use the `Session` APIs, data modifications are triggered automatically
+- to force the session to commit changes, you have two choices :
+  - either disable autocommit option and call session.flush() every time it is needed
+  - either wrapping code within a `Transaction`
+- Be sure that you don't nest transactions, it is not allowed by many databases.
+
+---
+### Handling transactions 
+In order to avoid the nested transactions problem, you can test if there is an open transaction before to create a new one:
+
+```
+	protected final Transaction getTransaction(Session session) {
+		
+		
+		Transaction tx = session.getTransaction();
+		if (!TransactionStatus.ACTIVE.equals(tx.getStatus())) {
+			tx = session.beginTransaction();
+		}
+		return tx;
+	}
+
+```
+
+---
+
+### Common patterns associated to Data Persistence
+To handle data operations properly, it is recommended to use some design patterns :
+- DAO pattern : The DAO class centralizes all the methods (CRUD) allowing to perform data operations for one Class.
+- Data Service pattern (DS) : This service gathers high level methods that redirects to unit DAO methods.
+
+---
+
+### Exercise : create a QuestionDAO and a QuizzDataService
+Specifications : 
+- **DAO** : contains 5 methods (create, getById, search, update, delete), that forward on the `Session` respective methods
+- **DS** : contains high level methods including one method to create a `Question` and some linked `MCQChoice`s  
+- Create test cases allowing to test 
+### Problem : adherence to the hibernate framework
+
+---
+### Solution to adherence : using an entity manager
+
+---
+
+
+
+
 
 
  
