@@ -15,5 +15,7 @@ code {
 
 pre code {
 	border-radius : initial;
+	padding: initial;
+	color: initial;
 	
 }
