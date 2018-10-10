@@ -21,7 +21,8 @@ There are two kinds of web services :
 - Those annotations avoid to define a WSDL file, as it is based on class structure
 
 ---
-### Java SOAP annotations
+### Java SOAP annotations : defining contract
+
 ```
 package fr.epita.quiz.services.web;
 
@@ -48,7 +49,7 @@ public interface QuizWS {
 
 ---
 
-### Java SOAP execution
+### Java SOAP execution : defining implementation
 
 
 
