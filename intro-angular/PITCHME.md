@@ -17,7 +17,7 @@
 
 ---
 ### Angular : How ?(2)
-![angular architecture](architecture.png "angular architecture") 
+![angular architecture](https://raw.githubusercontent.com/thomasbroussard/jee-intro/master/intro-angular/architecture.png "angular architecture") 
 
 ---
 
