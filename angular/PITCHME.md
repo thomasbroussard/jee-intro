@@ -51,9 +51,79 @@ then change directory to `<quiz-app>`
 
 ### Angular project structure
 Create 3 folders under  `src/app`:
-- datamodel: will contain 
-- services
-- components
+- datamodel: will contain all the modeling 
+- services: will contain all the clients
+- components: will contain all the graphical components
+
+---
+
+### First execution
+To launch the application and run it locally:
+
+`ng new <quiz-app>`
+
+it will run on http://localhost:4200
+
+---
+### creating a datamodel
+
+Create a new file "question.ts" under the datamodel folder
+
+```
+export class Question {
+    
+    content : string;
+
+    constructor(content : string){
+        this.content = content;
+    }
+
+
+
+}
+```
+
+---
+
+### Creating a component
+
+Change directory to `./components` use the command line  :
+
+`ng generate component question-form`
+
+
+---
+
+### Creating a service
+
+Change directory to `./services` use the command line  :
+
+`ng generate service questions-service`
+
+```
+import { Injectable } from '@angular/core';
+import { Question } from '../datamodel/question';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class QuestionsService {
+
+  constructor() { }
+
+
+  getQuestionList(): Question[]{
+    return [
+      new Question('What is Java?'),
+      new Question('What is Maven?')
+    ];
+
+  }
+  
+}
+
+```
+
 
 
 
