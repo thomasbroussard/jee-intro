@@ -152,7 +152,10 @@ don't forget to update app module!
 
 reference : https://angular.io/guide/http
 
+---
+### JWT authentication with angular
 
+reference : https://blog.angular-university.io/angular-jwt-authentication/
 
 
 
