@@ -123,6 +123,37 @@ export class QuestionsService {
 }
 
 ```
+---
+### integrating material
+
+to add angular material, place the command line at the quiz-app location :
+```
+ng add @angular/material
+```
+
+---
+### using the table component from material
+
+Place this component :
+```
+   <mat-form-field>
+       <mat-label>{{i}}</mat-label>
+       <input placeholder="Just a placeholder" value="{{currentChoice.title}}" >
+   </mat-form-field>
+```
+don't forget to update app module!
+---
+### troubleshooting
+- Errors can pop in the console of your server
+- once it is rendered, it will be in the console of your browser
+
+---
+### fetching a service using the httpclientmodule
+
+
+
+
+
 
 
 
